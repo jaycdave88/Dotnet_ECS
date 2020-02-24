@@ -23,4 +23,8 @@ RUN mkdir -p /opt/datadog
 RUN curl -LO https://github.com/DataDog/dd-trace-dotnet/releases/download/v1.13.0/datadog-dotnet-apm_1.13.0_amd64.deb
 RUN apt install ./datadog-dotnet-apm_1.13.0_amd64.deb
 
-ENTRYPOINT ["dotnet", "/home/sample-web-app/bin/Debug/netcoreapp3.1/sample-web-app.dll"]
+#ENTRYPOINT ["dotnet", "/home/sample-web-app/bin/Debug/netcoreapp3.1/sample-web-app.dll"]
+
+ADD entrypoint.sh /home/sample-web-app/entrypoint.sh
+RUN chmod +x /home/sample-web-app/entrypoint.sh
+CMD ["sh", "entrypoint.sh", "/home/sample-web-app/bin/Debug/netcoreapp3.1/sample-web-app.dll"]
