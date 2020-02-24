@@ -1,0 +1,101 @@
+{
+  "ipcMode": null,
+  "executionRoleArn": null,
+  "containerDefinitions": [
+    {
+      "dnsSearchDomains": null,
+      "logConfiguration": null,
+      "entryPoint": [
+        "sh",
+        "-c",
+        "export DD_AGENT_HOST=$(curl http://169.254.169.254/latest/meta-data/local-ipv4); dotnet /home/sample-web-app/bin/Debug/netcoreapp3.1/sample-web-app.dll"
+      ],
+      "portMappings": [
+        {
+          "hostPort": 8080,
+          "protocol": "tcp",
+          "containerPort": 8080
+        },
+        {
+          "hostPort": 80,
+          "protocol": "tcp",
+          "containerPort": 80
+        },
+        {
+          "hostPort": 50000,
+          "protocol": "tcp",
+          "containerPort": 50000
+        },
+        {
+          "hostPort": 5050,
+          "protocol": "tcp",
+          "containerPort": 5050
+        }
+      ],
+      "command": null,
+      "linuxParameters": null,
+      "cpu": 0,
+      "environment": [
+        {
+          "name": "DD_SERVICE_NAME",
+          "value": "esc-dotnetAPI"
+        },
+        {
+          "name": "DD_TRACE_ANALYTICS_ENABLED",
+          "value": "true"
+        },
+        {
+          "name": "DD_TRACE_GLOBAL_TAGS",
+          "value": "env:experian."
+        }
+      ],
+      "resourceRequirements": null,
+      "ulimits": null,
+      "dnsServers": null,
+      "mountPoints": [],
+      "workingDirectory": null,
+      "secrets": null,
+      "dockerSecurityOptions": null,
+      "memory": 12288,
+      "memoryReservation": null,
+      "volumesFrom": [],
+      "stopTimeout": null,
+      "image": "jaycdave88/dotnet_ecs",
+      "startTimeout": null,
+      "firelensConfiguration": null,
+      "dependsOn": null,
+      "disableNetworking": null,
+      "interactive": null,
+      "healthCheck": null,
+      "essential": true,
+      "links": null,
+      "hostname": null,
+      "extraHosts": null,
+      "pseudoTerminal": null,
+      "user": null,
+      "readonlyRootFilesystem": null,
+      "dockerLabels": null,
+      "systemControls": null,
+      "privileged": null,
+      "name": "esc-dotnetapi"
+    }
+  ],
+  "placementConstraints": [],
+  "memory": null,
+  "taskRoleArn": null,
+  "compatibilities": [
+    "EC2"
+  ],
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:172597598159:task-definition/ecs_dotnet:9",
+  "family": "ecs_dotnet",
+  "requiresAttributes": [],
+  "pidMode": null,
+  "requiresCompatibilities": [],
+  "networkMode": "bridge",
+  "cpu": null,
+  "revision": 9,
+  "status": "ACTIVE",
+  "inferenceAccelerators": null,
+  "proxyConfiguration": null,
+  "volumes": []
+}
