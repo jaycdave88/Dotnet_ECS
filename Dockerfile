@@ -20,8 +20,8 @@ ENV DD_DOTNET_TRACER_HOME=/opt/datadog
 ENV ASPNETCORE_URLS="http://*:5050"
 
 RUN mkdir -p /opt/datadog
-RUN curl -LO https://github.com/DataDog/dd-trace-dotnet/releases/download/v1.13.0/datadog-dotnet-apm_1.13.0_amd64.deb
-RUN apt install ./datadog-dotnet-apm_1.13.0_amd64.deb
+RUN curl -LO https://github.com/DataDog/dd-trace-dotnet/releases/download/v1.27.0/datadog-dotnet-apm_1.27.0_amd64.deb
+RUN apt install ./datadog-dotnet-apm_1.27.0_amd64.deb
 
 ADD entrypoint.sh /home/sample-web-app/entrypoint.sh
 RUN chmod +x /home/sample-web-app/entrypoint.sh
