@@ -25,4 +25,5 @@ RUN apt install ./datadog-dotnet-apm_1.27.0_amd64.deb
 
 ADD entrypoint.sh /home/sample-web-app/entrypoint.sh
 RUN chmod +x /home/sample-web-app/entrypoint.sh
-CMD ["sh", "entrypoint.sh", "/home/sample-web-app/bin/Debug/netcoreapp3.1/sample-web-app.dll"]
+#CMD ["sh", "entrypoint.sh", "/home/sample-web-app/bin/Debug/netcoreapp3.1/sample-web-app.dll"]
+ENTRYPOINT ["dotnet", "/home/sample-web-app/bin/Debug/netcoreapp3.1/sample-web-app.dll"]
